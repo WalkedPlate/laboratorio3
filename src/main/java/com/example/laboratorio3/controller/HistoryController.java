@@ -7,8 +7,5 @@ import org.springframework.web.bind.annotation.GetMapping;
 
 @Controller
 public class HistoryController {
-    @GetMapping(value = "/historial")
-    public String paginaHistorial(){
-        return ;
-    }
+
 }

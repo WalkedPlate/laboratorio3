@@ -29,18 +29,19 @@ public class EmployeeController {
 
         return "employee/lista";
     }
+    @GetMapping(value ={"/employee/new"})
+    public String nuevoEmployeeForm(Model model) {
 
-    public String nuevoEmployeeForm( ) {
-        return "employee/lista";
+        return "employee/newFrm";
     }
 
 
-    @PostMapping
+    @PostMapping(value ={"/employee/guardar"})
     public String guardarEmployee() {
         return "redirect:/employee";
     }
 
-    @GetMapping
+    @GetMapping(value ={"/employee/edit"})
     public String editarEmployee() {
         return "employee/lista";
     }
