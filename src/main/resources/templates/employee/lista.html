@@ -11,8 +11,8 @@
 <body>
     <div class="container">
         <h1>Lista de Empleados</h1>
-        <a class="btn btn-primary mt-4 mb-4" th:href="@{}"></a>                 <!-- COMPLETAR -->
-        <form class="input-group mb-lg-3" method="post" th:action="@{}">                <!-- COMPLETAR -->
+        <a class="btn btn-primary mt-4 mb-4" th:href="@{/employee}"></a>                 <!-- COMPLETAR -->
+        <form class="input-group mb-lg-3" method="post" th:action="@{/employee}">                <!-- COMPLETAR -->
             <!-- COMPLETAR -->
             <div class="input-group-append">
                 <!-- COMPLETAR -->
@@ -21,16 +21,37 @@
 
         <!-- COMPLETAR -->
         <!-- COMPLETAR -->
-            <table class="table table-sm" th:if="${}">
+            <table class="table table-sm">
                 <thead>
                 <tr>
-                    <!-- COMPLETAR -->
+                    <th>#</th>
+                    <th>Nombre </th>
+                    <th>Apellido </th>
+                    <th>Puesto </th>
+                    <th>Departamento</th>
+                    <th>Ciudad</th>
+                    <th></th>
+                    <th></th>
+
                 </tr>
                 </thead>
                 <tbody>
-                <!-- COMPLETAR -->
+                <tr th:each="employee,obj: ${lista}">
+                    <td th:text="${obj.index+1}"> </td>
+                    <td th:text="${employee.firstName }"></td>
+                    <td th:text="${employee.lastName}"></td>
+                    <td th:text="${employee.jobId}"></td>
+                    <td th:text="${employee.departmentId}"></td>
+                    <td th:text="${employee.departmentId}"></td>
+
+                    <td><a class="btn btn-primary" th:href="@{'/employee/edit?idEmployee=' + ${employee.id}}">Editar</a></td>
+                    <td><a class="btn btn-primary" th:href="@{'/employee/borrar?idEmployee=' + ${employee.id}}">Borrar</a></td>
+                </tr>
                 </tbody>
             </table>
+
+
+
         </div>
     </body>
 </html>
